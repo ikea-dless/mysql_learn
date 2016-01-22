@@ -11,10 +11,5 @@ end
 class User < ActiveRecord::Base
 end
 
-1000.times do
-  User.create!(name: FFaker::Name.name)
-end
-
-10000.times do
-  Message.create!(text: FFaker::Lorem.sentence, user_id: Random.rand(1..500))
-end
+1000.times{User.create!(name: FFaker::Name.name)}
+10000.times{Message.create!(text: FFaker::Lorem.sentence, user_id: Random.rand(1..500))}

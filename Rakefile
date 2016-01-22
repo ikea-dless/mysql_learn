@@ -22,3 +22,6 @@ desc 'Drop the database'
 task :drop do
   %x( MYSQL_PWD=#{CONF['default']['password']} mysql --user=#{CONF['default']['username']} -e "DROP DATABASE #{CONF['default']['database']}" )
 end
+
+desc 'Setup the database'
+task setup: [:create, :migrate]
